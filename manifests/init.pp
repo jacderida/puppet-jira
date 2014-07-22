@@ -56,7 +56,7 @@ class jira (
   $product      = 'jira',
   $format       = 'tar.gz',
   $installdir   = '/opt/jira',
-  $homedir      = '/home/jira',
+  $homedir      = '/var/atlassian/application-data/jira',
   $user         = 'jira',
   $group        = 'jira',
 
