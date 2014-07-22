@@ -37,14 +37,7 @@ class jira::install {
     notify          => Exec["chown_${jira::webappdir}"],
   } ->
 
-  $homedirectories = split($jira::homedir, '/')
-  each($homedirectories) |$directory| {
-    if ! defined (File[$directory]) {
-      file { $directory:
-        ensure => directory
-      }
-    }
-  } ->
+  exec { "/bin/mkdir -p ${jira::homedir}": } ->
 
   file { $jira::homedir:
     ensure  => directory,
